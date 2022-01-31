@@ -7,7 +7,8 @@
         <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.263022117602068" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.44059714622273666" />
-        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.28125" />
       </map>
     </option>
   </component>
