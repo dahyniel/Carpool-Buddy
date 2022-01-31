@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/myVehiclesIcon"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006"
+        app:srcCompat="@drawable/vehicles_icon" />
+
+    <Button
+        android:id="@+id/homeMyVehiclesButton"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:background="@drawable/buttonshape"
+        android:text="My Vehicles"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myVehiclesIcon" />
+
+    <ImageView
+        android:id="@+id/bookRideIcon"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327"
+        app:srcCompat="@drawable/book_icon" />
+
+    <Button
+        android:id="@+id/homeBookRideButton"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buttonshape"
+        android:text="Book A Ride"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookRideIcon" />
+
+    <ImageView
+        android:id="@+id/greenIcon"
+        android:layout_width="285dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="-35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeBookRideButton"
+        app:srcCompat="@drawable/green_icon" />
+
+    <Button
+        android:id="@+id/homeGreenButton"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="-40dp"
+        android:background="@drawable/buttonshape"
+        android:text="I'm feeling green"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenIcon" />
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="270dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/buttonshape"
+        android:text="Sign Out"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

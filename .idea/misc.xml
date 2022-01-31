@@ -5,10 +5,17 @@
       <map>
         <entry key="app/src/main/res/drawable/buttonshape.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/green_background.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/layout/activity_add_vehicle.xml" value="0.1852355072463768" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.263022117602068" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.44059714622273666" />
+        <entry key="app/src/main/res/layout/activity_green.xml" value="0.1852355072463768" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3470747580921361" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.35716581605164915" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.1852355072463768" />
+        <entry key="app/src/main/res/layout/activity_vehicle_profile.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_vehicles_info.xml" value="0.28125" />
       </map>
     </option>
   </component>

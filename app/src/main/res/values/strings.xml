@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Carpool Buddy App</string>
-    
+
     <string-array name="roles">
         <item>Student</item>
         <item>Teacher</item>
