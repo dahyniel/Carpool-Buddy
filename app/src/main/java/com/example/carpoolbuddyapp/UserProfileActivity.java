@@ -17,7 +17,7 @@ public class UserProfileActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        addVehicleButton = findViewById(R.id.homeMyVehiclesButton);
+        addVehicleButton = findViewById(R.id.addVehicleButton);
         addVehicleButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -16,7 +16,7 @@ public class VehicleProfileActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_profile);
 
-        bookRideButton = findViewById(R.id.infoButton);
+        bookRideButton = findViewById(R.id.bookVehicleButton);
         bookRideButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -29,6 +29,6 @@ public class VehicleProfileActivity extends AppCompatActivity
 
     public void bookRide()
     {
-
+        System.out.println("RIDE BOOKED");
     }
 }
