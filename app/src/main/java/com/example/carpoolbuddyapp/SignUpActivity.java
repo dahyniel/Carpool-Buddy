@@ -80,6 +80,13 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                             Log.d("Sign Up", "Signed Up!");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+
+//                            create user object + add to database
+                            firestore.collection("users").document("email").set(user);
+//                            firestore.collection("users").document("email").set(emailString);
+//                            firestore.collection("users").document("password").set(passwordString);
+//                            firestore.collection("users").document("email").set(mUser.getEmail());
+//                            firestore.collection("users").document("password").set(mUser);
                         }
                         else
                         {
@@ -99,9 +106,3 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         }
     }
 }
-//        create user object + add to database
-//        firestore.collection("users").document("email").set(emailString);
-//        firestore.collection("users").document("password").set(passwordString);
-
-//        firestore.collection("users").document("email").set(mUser.getEmail());
-//        firestore.collection("users").document("password").set(mUser);
