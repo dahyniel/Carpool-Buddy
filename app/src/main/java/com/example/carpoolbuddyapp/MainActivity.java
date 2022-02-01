@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity
 {
     Button signInButtom;
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        FirebaseAuth mAuth;
+//        mAuth = FirebaseAuth.getInstance();
 
         signInButtom = findViewById(R.id.enterSignInPageButton);
         signInButtom.setOnClickListener(new View.OnClickListener()
@@ -38,6 +44,17 @@ public class MainActivity extends AppCompatActivity
             }
         });
     }
+
+//    @Override
+//    public void onStart()
+//    {
+//        super.onStart();
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if (currentUser != null)
+//        {
+//            reload();
+//        }
+//    }
 
     public void openSignInActivity()
     {

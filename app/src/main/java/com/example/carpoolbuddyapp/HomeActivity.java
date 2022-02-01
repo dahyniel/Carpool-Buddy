@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeActivity extends AppCompatActivity
 {
     Button myVehiclesButton;
     Button bookRideButton;
     Button greenButton;
+    Button signOutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,6 +51,16 @@ public class HomeActivity extends AppCompatActivity
                 openGreenActivity();
             }
         });
+
+        signOutButton = findViewById(R.id.signOutButton);
+        signOutButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                signOut();
+            }
+        });
     }
 
     public void openUserProfileActivity()
@@ -65,6 +78,13 @@ public class HomeActivity extends AppCompatActivity
     public void openGreenActivity()
     {
         Intent intent = new Intent(this, GreenActivity.class);
+        startActivity(intent);
+    }
+
+    public void signOut()
+    {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

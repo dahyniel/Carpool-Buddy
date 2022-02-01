@@ -24,7 +24,6 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 {
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
-
     private String selected;
     private Spinner sUserType;
 
@@ -40,15 +39,16 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
+        selected = findViewById(R.id.signUpRoleInput).toString();
         nameField = findViewById(R.id.signUpNameInput);
         emailField = findViewById(R.id.signUpEmailInput);
         passwordField = findViewById(R.id.signUpPasswordInput);
 
-        Spinner spinner = findViewById(R.id.signUpRoleInput);
+        sUserType = findViewById(R.id.signUpRoleInput);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        sUserType.setAdapter(adapter);
+        sUserType.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -99,3 +99,9 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         }
     }
 }
+//        create user object + add to database
+//        firestore.collection("users").document("email").set(emailString);
+//        firestore.collection("users").document("password").set(passwordString);
+
+//        firestore.collection("users").document("email").set(mUser.getEmail());
+//        firestore.collection("users").document("password").set(mUser);
