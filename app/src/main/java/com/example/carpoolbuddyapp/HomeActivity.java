@@ -15,12 +15,15 @@ public class HomeActivity extends AppCompatActivity
     Button bookRideButton;
     Button greenButton;
     Button signOutButton;
+//    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+//        mAuth = FirebaseAuth.getInstance();
 
         myVehiclesButton = findViewById(R.id.homeMyVehiclesButton);
         myVehiclesButton.setOnClickListener(new View.OnClickListener()
@@ -84,6 +87,7 @@ public class HomeActivity extends AppCompatActivity
     public void signOut()
     {
         FirebaseAuth.getInstance().signOut();
+//        mAuth.signOut();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

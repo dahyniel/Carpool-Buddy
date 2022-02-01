@@ -81,8 +81,9 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
 
+                            //firestore.collection(“/somepath”).set(someObject) will save the object to the database.
+
 //                            create user object + add to database
-                            firestore.collection("users").document("email").set(user);
 //                            firestore.collection("users").document("email").set(emailString);
 //                            firestore.collection("users").document("password").set(passwordString);
 //                            firestore.collection("users").document("email").set(mUser.getEmail());
