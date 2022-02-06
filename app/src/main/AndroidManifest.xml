@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CarpoolBuddyApp">
         <activity
+            android:name=".GreenVehicleProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".GreenActivity"
             android:exported="true" />
         <activity

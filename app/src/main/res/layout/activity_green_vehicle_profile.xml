@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".VehicleProfileActivity">
+    android:background="@drawable/green_background"
+    tools:context=".GreenVehicleProfileActivity">
 
     <TextView
-        android:id="@+id/vehicleProfileTitle"
+        android:id="@+id/greenVehicleProfileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.01" />
 
     <TextView
-        android:id="@+id/carTypeTitle"
+        android:id="@+id/greenCarTypeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.105" />
 
     <TextView
-        android:id="@+id/carTypeResult"
+        android:id="@+id/greenCarTypeResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -47,10 +47,10 @@
         android:inputType="textPersonName"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carTypeTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarTypeTitle" />
 
     <TextView
-        android:id="@+id/carOwnerTitle"
+        android:id="@+id/greenCarOwnerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -60,10 +60,10 @@
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carTypeResult" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarTypeResult" />
 
     <TextView
-        android:id="@+id/carOwnerResult"
+        android:id="@+id/greenCarOwnerResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -72,10 +72,11 @@
         android:inputType="textPersonName"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carOwnerTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarOwnerTitle"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/carPriceTitle"
+        android:id="@+id/greenCarPriceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -85,10 +86,10 @@
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carOwnerResult" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarOwnerResult" />
 
     <TextView
-        android:id="@+id/carPriceResult"
+        android:id="@+id/greenCarPriceResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -97,10 +98,10 @@
         android:inputType="textPersonName"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carPriceTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarPriceTitle" />
 
     <TextView
-        android:id="@+id/carCapacityTitle"
+        android:id="@+id/greenCarCapacityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -110,10 +111,10 @@
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carPriceResult" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarPriceResult" />
 
     <TextView
-        android:id="@+id/carCapacityResult"
+        android:id="@+id/greenCarCapacityResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -122,10 +123,11 @@
         android:inputType="number"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carCapacityTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarCapacityTitle"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/carDescriptionTitle"
+        android:id="@+id/greenCarDescriptionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -135,10 +137,10 @@
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carCapacityResult" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarCapacityResult" />
 
     <TextView
-        android:id="@+id/carDescriptionResult"
+        android:id="@+id/greenCarDescriptionResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -147,15 +149,16 @@
         android:inputType="textPersonName"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carDescriptionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarDescriptionTitle"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/carId"
+        android:id="@+id/greenCarId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/bookVehicleButton"
+        android:id="@+id/greenBookVehicleButton"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -167,6 +170,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carDescriptionResult" />
+        app:layout_constraintTop_toBottomOf="@+id/greenCarDescriptionResult" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,6 @@ public class AddVehicleActivity extends AppCompatActivity
     EditText carDescription;
 
     FirebaseFirestore firestoreRef;
-    FirebaseUser mUser;
     FirebaseAuth mAuth;
 
     @Override
@@ -58,8 +57,13 @@ public class AddVehicleActivity extends AppCompatActivity
             toast.show();
         }
 
+        String id = UUID.randomUUID().toString();
+
         EditText type = findViewById(R.id.carTypeResult);
         String typeValue = type.getText().toString();
+
+        String owner = mAuth.getCurrentUser().getEmail();
+        String ownerString = owner.substring(0, owner.length() - 10);
 
         EditText capacity = findViewById(R.id.carCapacityResult);
         Integer capacityValue = Integer.valueOf(capacity.getText().toString());
@@ -70,36 +74,59 @@ public class AddVehicleActivity extends AppCompatActivity
         EditText description = findViewById(R.id.carDescriptionResult);
         String descriptionValue = description.getText().toString();
 
-        String id = UUID.randomUUID().toString();
-
         if (typeValue.equals("Electric"))
         {
-            ElectricVehicle car = new ElectricVehicle(id, typeValue, "testing owner", capacityValue, priceValue, descriptionValue, true);
-            firestoreRef.collection("Electric Vehicles").document(car.getCarId()).set(car);
+            ElectricVehicle car = new ElectricVehicle(id, typeValue, ownerString, capacityValue,
+                    priceValue, descriptionValue, true);
+            firestoreRef.collection("Electric Vehicles")
+                    .document(car.getCarId()).set(car);
+
+            Context context = getApplicationContext();
+            CharSequence text = "Electric Vehicle added!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
         else if (typeValue.equals("Car"))
         {
-            Vehicles car = new Vehicles(id, typeValue, "testing owner", capacityValue, priceValue, descriptionValue, true);
+            Vehicles car = new Vehicles(id, typeValue, ownerString, capacityValue, priceValue,
+                    descriptionValue, true);
             firestoreRef.collection("Vehicles").document(car.getCarId()).set(car);
 
-            firestoreRef.collection("Vehicles").document(car.getCarId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
-            {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task)
-                {
-                    if (task.isSuccessful())
-                    {
-                        DocumentSnapshot ds = task.getResult();
-                        Vehicles vehicle = ds.toObject(Vehicles.class);
-                        String vehicleDescription = vehicle.getCarDescription();
-                    }
-                }
-            });
+            Context context = getApplicationContext();
+            CharSequence text = "Vehicle added!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+        else if (typeValue.equals("Bicycle"))
+        {
+            Bicycle bike = new Bicycle(id, typeValue, ownerString, capacityValue, priceValue,
+                    descriptionValue, true);
+            firestoreRef.collection("Electric Vehicles").document(bike.getBikeId()).set(bike);
+
+            Context context = getApplicationContext();
+            CharSequence text = "Bike added!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+        else if (typeValue.equals("Walk"))
+        {
+            Walk walk = new Walk(id, typeValue, ownerString, capacityValue, priceValue,
+                    descriptionValue, true);
+            firestoreRef.collection("Electric Vehicles").document(walk.getWalkId()).set(walk);
+
+            Context context = getApplicationContext();
+            CharSequence text = "Walk added!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
         }
         else
         {
             Context context = getApplicationContext();
-            CharSequence text = "Invalid car type";
+            CharSequence text = "Invalid vehicle type!";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();

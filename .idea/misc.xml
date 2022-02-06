@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/layout/activity_add_vehicle.xml" value="0.23087966340180652" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.263022117602068" />
         <entry key="app/src/main/res/layout/activity_green.xml" value="0.1852355072463768" />
+        <entry key="app/src/main/res/layout/activity_green_vehicle_profile.xml" value="0.17753623188405798" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.3470747580921361" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35716581605164915" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.335" />
@@ -16,6 +17,8 @@
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.1852355072463768" />
         <entry key="app/src/main/res/layout/activity_vehicle_profile.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_vehicles_info.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/green_list_items.xml" value="0.5018610167257498" />
+        <entry key="app/src/main/res/layout/green_profile_activity.xml" value="0.17753623188405798" />
         <entry key="app/src/main/res/layout/list_items.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/my_vehicles_recycler_view_row.xml" value="0.29438405797101447" />
         <entry key="app/src/main/res/layout/profile_activity.xml" value="0.17753623188405798" />

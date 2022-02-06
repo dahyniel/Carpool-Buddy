@@ -16,7 +16,8 @@ public class Vehicles implements Serializable
     {
     }
 
-    public Vehicles(String id, String type, String owner, int capacity, double price, String description, boolean status)
+    public Vehicles(String id, String type, String owner, int capacity, double price,
+                    String description, boolean status)
     {
         this.carId = id;
         this.carType = type;
@@ -60,5 +61,10 @@ public class Vehicles implements Serializable
     public boolean isCarStatus()
     {
         return carStatus;
+    }
+
+    public void setCarCapacity(int capacity)
+    {
+        this.carCapacity = carCapacity - capacity;
     }
 }

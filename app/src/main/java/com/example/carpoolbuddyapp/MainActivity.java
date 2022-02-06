@@ -44,17 +44,6 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-//    @Override
-//    public void onStart()
-//    {
-//        super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null)
-//        {
-//            reload();
-//        }
-//    }
-
     public void openSignInActivity()
     {
         Intent intent = new Intent(this, SignInActivity.class);

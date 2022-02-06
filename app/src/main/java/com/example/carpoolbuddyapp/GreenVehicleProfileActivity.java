@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class VehicleProfileActivity extends AppCompatActivity
+public class GreenVehicleProfileActivity extends AppCompatActivity
 {
     TextView carId;
     TextView carType;
@@ -24,14 +24,14 @@ public class VehicleProfileActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicle_profile);
+        setContentView(R.layout.activity_green_vehicle_profile);
         firestore = FirebaseFirestore.getInstance();
-        carId = findViewById(R.id.carId);
-        carType = findViewById(R.id.carTypeResult);
-        carOwner = findViewById(R.id.carOwnerResult);
-        carPrice = findViewById(R.id.carPriceResult);
-        carCapacity = findViewById(R.id.carCapacityResult);
-        carDescription = findViewById(R.id.carDescriptionResult);
+        carId = findViewById(R.id.greenCarId);
+        carType = findViewById(R.id.greenCarTypeResult);
+        carOwner = findViewById(R.id.greenCarOwnerResult);
+        carPrice = findViewById(R.id.greenCarPriceResult);
+        carCapacity = findViewById(R.id.greenCarCapacityResult);
+        carDescription = findViewById(R.id.greenCarDescriptionResult);
 
         String setId = "N/A";
         Bundle idExtras = getIntent().getExtras();
@@ -84,13 +84,6 @@ public class VehicleProfileActivity extends AppCompatActivity
 
     public void bookRide(View v)
     {
-//        if (carType.equals("Car"))
-//        {
-//            Vehicles car = new Vehicles(carType, carOwner, carCapacity, carPrice,
-//                    carDescription, true);
-//            firestore.collection("Vehicles").document(car.getCarId()).set(car);
-//        }
-
         Context context = getApplicationContext();
         CharSequence text = "Ride booked";
         int duration = Toast.LENGTH_SHORT;

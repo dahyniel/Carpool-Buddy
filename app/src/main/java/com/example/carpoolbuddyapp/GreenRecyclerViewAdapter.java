@@ -10,26 +10,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>
+public class GreenRecyclerViewAdapter extends RecyclerView.Adapter<GreenRecyclerViewAdapter.GreenMyViewHolder>
 {
-    private ArrayList<RecyclerViewUser> usersList;
-    private RecyclerViewClickListener listener;
+    private ArrayList<GreenUser> usersList;
+    private RecyclerViewAdapter.RecyclerViewClickListener listener;
 
-    public RecyclerViewAdapter(ArrayList<RecyclerViewUser> usersList,
-                               RecyclerViewClickListener listener)
+    public GreenRecyclerViewAdapter(ArrayList<GreenUser> usersList, RecyclerViewAdapter.RecyclerViewClickListener listener)
     {
         this.usersList = usersList;
         this.listener = listener;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class GreenMyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
-        private TextView nameText;
+        private TextView greenText;
 
-        public MyViewHolder(final View view)
+        public GreenMyViewHolder(final View view)
         {
             super(view);
-            nameText = view.findViewById(R.id.blankTextView);
+            greenText = view.findViewById(R.id.greenTextView);
             view.setOnClickListener(this);
         }
 
@@ -42,19 +41,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @NonNull
     @Override
-    public RecyclerViewAdapter.MyViewHolder onCreateViewHolder(
+    public GreenRecyclerViewAdapter.GreenMyViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType)
     {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_items,
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.green_list_items,
                 parent, false);
-        return new MyViewHolder(itemView);
+        return new GreenMyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.MyViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull GreenRecyclerViewAdapter.GreenMyViewHolder holder, int position)
     {
         String name = usersList.get(position).getUsername();
-        holder.nameText.setText(name);
+        holder.greenText.setText(name);
     }
 
     @Override

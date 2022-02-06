@@ -27,6 +27,7 @@ import java.util.Objects;
 
 public class VehiclesInfoActivity extends AppCompatActivity
 {
+    private ArrayList<RecyclerViewUser> carIdList;
     private ArrayList<RecyclerViewUser> carTypeList;
     private ArrayList<RecyclerViewUser> carOwnerList;
     private ArrayList<RecyclerViewUser> carPriceList;
@@ -34,17 +35,14 @@ public class VehiclesInfoActivity extends AppCompatActivity
     private ArrayList<RecyclerViewUser> carDescriptionList;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter.RecyclerViewClickListener listener;
-
     FirebaseFirestore firestore;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
-    Vehicles vehicleInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicles_info);
+        carIdList = new ArrayList<>();
         carTypeList = new ArrayList<>();
         carOwnerList = new ArrayList<>();
         carPriceList = new ArrayList<>();
@@ -73,11 +71,13 @@ public class VehiclesInfoActivity extends AppCompatActivity
             public void onClick(View v, int position)
             {
                 Intent intent = new Intent(getApplicationContext(), VehicleProfileActivity.class);
+                intent.putExtra("Id", carIdList.get(position).getUsername());
                 intent.putExtra("Type", carTypeList.get(position).getUsername());
                 intent.putExtra("Owner", carOwnerList.get(position).getUsername());
                 intent.putExtra("Price", carPriceList.get(position).getUsername());
                 intent.putExtra("Capacity", carCapacityList.get(position).getUsername());
-                intent.putExtra("Description", carDescriptionList.get(position).getUsername());
+                intent.putExtra("Description", carDescriptionList.get(position)
+                        .getUsername());
                 startActivity(intent);
             }
         };
@@ -85,7 +85,8 @@ public class VehiclesInfoActivity extends AppCompatActivity
 
     private void setUserInfo()
     {
-        firestore.collection("Vehicles").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
+        firestore.collection("Vehicles")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>()
         {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task)
@@ -94,6 +95,9 @@ public class VehiclesInfoActivity extends AppCompatActivity
                 {
                     for (QueryDocumentSnapshot document: task.getResult())
                     {
+                        String id = document.toObject(Vehicles.class).getCarId();
+                        carIdList.add(new RecyclerViewUser(id));
+
                         String type = document.toObject(Vehicles.class).getCarType();
                         carTypeList.add(new RecyclerViewUser(type));
 
@@ -115,11 +119,5 @@ public class VehiclesInfoActivity extends AppCompatActivity
                 setAdapter();
             }
         });
-    }
-
-    public void openVehicleInfoActivity(View v)
-    {
-        Intent intent = new Intent(this, VehicleProfileActivity.class);
-        startActivity(intent);
     }
 }

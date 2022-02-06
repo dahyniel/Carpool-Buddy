@@ -45,7 +45,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         passwordField = findViewById(R.id.signUpPasswordInput);
 
         sUserType = findViewById(R.id.signUpRoleInput);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sUserType.setAdapter(adapter);
         sUserType.setOnItemSelectedListener(this);
