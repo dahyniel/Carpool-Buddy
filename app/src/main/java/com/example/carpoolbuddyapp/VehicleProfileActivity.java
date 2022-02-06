@@ -23,15 +23,13 @@ public class VehicleProfileActivity extends AppCompatActivity
         carPrice = findViewById(R.id.carPriceResult);
         carDescription = findViewById(R.id.carDescriptionResult);
 
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null)
-//        {
-//            username = extras.getString("username");
-//        }
-
-        carType.setText("username");
-
-        //type = db.getType etc. for rest
+        String description = "No description";
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            description = extras.getString("Description");
+        }
+        carDescription.setText(description);
     }
 
     public void bookRide(View v)
