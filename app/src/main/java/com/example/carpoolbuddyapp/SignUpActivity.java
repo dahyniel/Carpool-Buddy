@@ -27,9 +27,9 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     private String selected;
     private Spinner sUserType;
 
-    private EditText nameField;
-    private EditText emailField;
-    private EditText passwordField;
+    EditText nameField;
+    EditText emailField;
+    EditText passwordField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         String passwordString = passwordText.getText().toString();
 
         User newUser = new User(nameString, passwordString, emailString);
-        firestore.collection("Users").document("Testing").set(newUser);
+        firestore.collection("Users").document(newUser.getUserName()).set(newUser);
 
         mAuth.createUserWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()

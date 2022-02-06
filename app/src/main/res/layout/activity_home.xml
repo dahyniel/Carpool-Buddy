@@ -21,10 +21,10 @@
 
     <Button
         android:id="@+id/homeMyVehiclesButton"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="55dp"
         android:background="@drawable/buttonshape"
-        android:text="My Vehicles"
+        android:text="Add Vehicles"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"

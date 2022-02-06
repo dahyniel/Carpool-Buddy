@@ -1,17 +1,25 @@
 package com.example.carpoolbuddyapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.UUID;
 
 public class AddVehicleActivity extends AppCompatActivity
 {
@@ -41,7 +49,7 @@ public class AddVehicleActivity extends AppCompatActivity
 
     public void addNewVehicle(View v)
     {
-        if (formValid() == false)
+        if (!formValid())
         {
             Context context = getApplicationContext();
             CharSequence text = "Fill in all sections";
@@ -62,15 +70,36 @@ public class AddVehicleActivity extends AppCompatActivity
         EditText description = findViewById(R.id.carDescriptionResult);
         String descriptionValue = description.getText().toString();
 
+        String id = UUID.randomUUID().toString();
+
         if (typeValue.equals("Electric"))
         {
-            ElectricVehicle car = new ElectricVehicle(typeValue, "test", capacityValue, priceValue, descriptionValue, true);
-            firestoreRef.collection("Vehicles").document("Electric").set(car);
+            ElectricVehicle car = new ElectricVehicle(id, typeValue, "testing owner", capacityValue, priceValue, descriptionValue, true);
+            firestoreRef.collection("Electric Vehicles").document(car.getCarId()).set(car);
         }
         else if (typeValue.equals("Car"))
         {
-            Vehicles car = new Vehicles(typeValue, "test", capacityValue, priceValue, descriptionValue, true);
-            firestoreRef.collection("Vehicles").document("Normal").set(car);
+            Vehicles car = new Vehicles(id, typeValue, "testing owner", capacityValue, priceValue, descriptionValue, true);
+            firestoreRef.collection("Vehicles").document(car.getCarId()).set(car);
+
+            firestoreRef.collection("Vehicles").document(car.getCarId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
+            {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task)
+                {
+                    if (task.isSuccessful())
+                    {
+                        DocumentSnapshot ds = task.getResult();
+                        Vehicles vehicle = ds.toObject(Vehicles.class);
+                        String vehicleDescription = vehicle.getCarDescription();
+
+//                        for (DocumentSnapshot testingVehicle: Vehicles.requireNonNull(task.getResult()))
+//                        {
+//                            vehiclesList.add(vehicle.toString());
+//                        }
+                    }
+                }
+            });
         }
         else
         {
@@ -84,8 +113,8 @@ public class AddVehicleActivity extends AppCompatActivity
 
     public boolean formValid()
     {
-        if (carType.getText().equals(null) || carCapacity.getText().equals(null) ||
-                carPrice.getText().equals(null) || carDescription.getText().equals(null))
+        if (carType.getText().equals(" ") || carCapacity.getText().equals(" ") ||
+                carPrice.getText().equals(" ") || carDescription.getText().equals(" "))
         {
             return false;
         }

@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity
 
     public void openUserProfileActivity()
     {
-        Intent intent = new Intent(this, UserProfileActivity.class);
+        Intent intent = new Intent(this, AddVehicleActivity.class);
         startActivity(intent);
     }
 

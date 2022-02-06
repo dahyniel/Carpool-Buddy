@@ -19,9 +19,6 @@
             android:name=".VehiclesInfoActivity"
             android:exported="true" />
         <activity
-            android:name=".UserProfileActivity"
-            android:exported="true" />
-        <activity
             android:name=".AddVehicleActivity"
             android:exported="true" />
         <activity
@@ -32,9 +29,6 @@
             android:exported="true" />
         <activity
             android:name=".SignInActivity"
-            android:exported="true" />
-        <activity
-            android:name=".AuthActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

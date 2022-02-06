@@ -4,44 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import android.widget.TextView;
 
 public class VehicleProfileActivity extends AppCompatActivity
 {
-    Button bookRideButton;
-    FirebaseAuth mAuth;
-    FirebaseUser user;
-    Vehicles vehicleInfo;
+    TextView carType;
+    TextView carOwner;
+    TextView carPrice;
+    TextView carDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_profile);
+        carType = findViewById(R.id.carTypeResult);
+        carOwner = findViewById(R.id.carOwnerResult);
+        carPrice = findViewById(R.id.carPriceResult);
+        carDescription = findViewById(R.id.carDescriptionResult);
 
-        bookRideButton = findViewById(R.id.bookVehicleButton);
-        bookRideButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                bookRide();
-            }
-        });
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null)
+//        {
+//            username = extras.getString("username");
+//        }
+
+        carType.setText("username");
+
+        //type = db.getType etc. for rest
     }
 
-    public void setUpButton()
-    {
-        //Only shows “book ride” button if this user is not the owner of this vehicle.
-        //Show the correct price in a label depending on the user’s role.
-        //Teachers and students pay half price. Alumni and Parents pay full price.
-        //Only shows “open/close” button if the user IS the owner of this vehicle.
-    }
-
-    public void bookRide()
+    public void bookRide(View v)
     {
         //Reduce current capacity for this vehicle, in the database by 1.
         System.out.println("RIDE BOOKED");

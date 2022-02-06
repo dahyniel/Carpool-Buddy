@@ -23,51 +23,39 @@
         app:layout_constraintVertical_bias="0.054" />
 
     <TextView
-        android:id="@+id/carNameTitle"
+        android:id="@+id/carTypeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Car name:"
+        android:text="Car type:"
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
-
-    <EditText
-        android:id="@+id/carNameResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="15dp"
-        android:ems="8"
-        android:inputType="textPersonName"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carNameTitle" />
+        app:layout_constraintVertical_bias="0.189" />
 
     <TextView
         android:id="@+id/carOwnerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Car owner:"
         android:textColor="#353535"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carNameResult" />
+        app:layout_constraintTop_toBottomOf="@+id/carTypeResult" />
 
-    <EditText
+    <TextView
         android:id="@+id/carOwnerResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
         android:ems="8"
         android:inputType="textPersonName"
         android:textSize="25sp"
@@ -75,11 +63,23 @@
         app:layout_constraintTop_toBottomOf="@+id/carOwnerTitle" />
 
     <TextView
+        android:id="@+id/carDescriptionResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:ems="8"
+        android:inputType="textPersonName"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carDescriptionTitle" />
+
+    <TextView
         android:id="@+id/carPriceTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Car price:"
         android:textColor="#353535"
@@ -87,12 +87,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carOwnerResult" />
 
-    <EditText
+    <TextView
         android:id="@+id/carPriceResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="20dp"
         android:ems="8"
         android:inputType="textPersonName"
         android:textSize="25sp"
@@ -103,8 +103,8 @@
         android:id="@+id/carDescriptionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif-medium"
         android:text="Car description:"
         android:textColor="#353535"
@@ -112,24 +112,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carPriceResult" />
 
-    <EditText
-        android:id="@+id/carDescriptionResult"
+    <TextView
+        android:id="@+id/carTypeResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
         android:ems="8"
         android:inputType="textPersonName"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carDescriptionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/carTypeTitle" />
 
     <Button
         android:id="@+id/bookVehicleButton"
         android:layout_width="270dp"
         android:layout_height="60dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/buttonshape"
+        android:onClick="bookRide"
         android:text="Book Vehicle"
         android:textAllCaps="false"
         android:textSize="30sp"
