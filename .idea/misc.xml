@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.1852355072463768" />
         <entry key="app/src/main/res/layout/activity_vehicle_profile.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_vehicles_info.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/my_vehicles_recycler_view_row.xml" value="0.29438405797101447" />
       </map>
     </option>
   </component>
