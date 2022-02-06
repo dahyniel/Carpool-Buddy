@@ -66,8 +66,17 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
     public void signUp(View v)
     {
-        String emailString = emailField.getText().toString();
-        String passwordString = passwordField.getText().toString();
+        EditText nameText = findViewById(R.id.signUpNameInput);
+        String nameString = nameText.getText().toString();
+
+        EditText emailText = findViewById(R.id.signUpEmailInput);
+        String emailString = emailText.getText().toString();
+
+        EditText passwordText = findViewById(R.id.signUpPasswordInput);
+        String passwordString = passwordText.getText().toString();
+
+        User newUser = new User(nameString, passwordString, emailString);
+        firestore.collection("Users").document("Testing").set(newUser);
 
         mAuth.createUserWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
@@ -80,14 +89,6 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                             Log.d("Sign Up", "Signed Up!");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
-
-                            //firestore.collection(“/somepath”).set(someObject) will save the object to the database.
-
-//                            create user object + add to database
-//                            firestore.collection("users").document("email").set(emailString);
-//                            firestore.collection("users").document("password").set(passwordString);
-//                            firestore.collection("users").document("email").set(mUser.getEmail());
-//                            firestore.collection("users").document("password").set(mUser);
                         }
                         else
                         {

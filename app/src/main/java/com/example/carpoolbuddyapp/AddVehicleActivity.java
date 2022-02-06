@@ -15,8 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AddVehicleActivity extends AppCompatActivity
 {
-    Button addVehicleButton;
-    EditText carName;
+    EditText carType;
     EditText carCapacity;
     EditText carPrice;
     EditText carDescription;
@@ -31,28 +30,16 @@ public class AddVehicleActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
 
-        carName = findViewById(R.id.carNameResult);
+        carType = findViewById(R.id.carTypeResult);
         carCapacity = findViewById(R.id.carCapacityResult);
         carPrice = findViewById(R.id.carPriceResult);
         carDescription = findViewById(R.id.carDescriptionResult);
 
         firestoreRef = FirebaseFirestore.getInstance();
-        //firestore.collection(“/somepath”).set(someObject) will save the object to the database.
-
         mAuth = FirebaseAuth.getInstance();
-
-        addVehicleButton = findViewById(R.id.addVehicleButton);
-        addVehicleButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                addNewVehicle();
-            }
-        });
     }
 
-    public void addNewVehicle()
+    public void addNewVehicle(View v)
     {
         if (formValid() == false)
         {
@@ -62,14 +49,43 @@ public class AddVehicleActivity extends AppCompatActivity
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
-        //Check the type of vehicle chosen, use the database reference to store the vehicle subclass instance. If a user adds a Car, upload a Car object, if user adds an Electric Car upload an ElectricCar object.
-        System.out.println("ADDED VEHICLE");
+
+        EditText type = findViewById(R.id.carTypeResult);
+        String typeValue = type.getText().toString();
+
+        EditText capacity = findViewById(R.id.carCapacityResult);
+        Integer capacityValue = Integer.valueOf(capacity.getText().toString());
+
+        EditText price = findViewById(R.id.carPriceResult);
+        Double priceValue = Double.valueOf(price.getText().toString());
+
+        EditText description = findViewById(R.id.carDescriptionResult);
+        String descriptionValue = description.getText().toString();
+
+        if (typeValue.equals("Electric"))
+        {
+            ElectricVehicle car = new ElectricVehicle(typeValue, "test", capacityValue, priceValue, descriptionValue, true);
+            firestoreRef.collection("Vehicles").document("Electric").set(car);
+        }
+        else if (typeValue.equals("Car"))
+        {
+            Vehicles car = new Vehicles(typeValue, "test", capacityValue, priceValue, descriptionValue, true);
+            firestoreRef.collection("Vehicles").document("Normal").set(car);
+        }
+        else
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "Invalid car type";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     public boolean formValid()
     {
-        if (carName.getText().equals(" ") || carCapacity.getText().equals(" ") ||
-                carPrice.getText().equals(" ") || carDescription.getText().equals(" "))
+        if (carType.getText().equals(null) || carCapacity.getText().equals(null) ||
+                carPrice.getText().equals(null) || carDescription.getText().equals(null))
         {
             return false;
         }

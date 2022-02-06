@@ -2,7 +2,7 @@ package com.example.carpoolbuddyapp;
 
 import java.io.Serializable;
 
-public class Vehicles implements Serializable
+public class ElectricVehicle implements Serializable
 {
     String carType;
     String carOwner;
@@ -11,11 +11,11 @@ public class Vehicles implements Serializable
     String carDescription;
     boolean carStatus;
 
-    public Vehicles()
+    public ElectricVehicle()
     {
     }
 
-    public Vehicles(String type, String owner, int capacity, double price, String description, boolean status)
+    public ElectricVehicle(String type, String owner, int capacity, double price, String description, boolean status)
     {
         this.carType = type;
         this.carOwner = owner;
