@@ -7,8 +7,8 @@ public class Vehicles implements Serializable
     String carId;
     String carType;
     String carOwner;
-    int carCapacity;
     double carPrice;
+    int carCapacity;
     String carDescription;
     boolean carStatus;
 

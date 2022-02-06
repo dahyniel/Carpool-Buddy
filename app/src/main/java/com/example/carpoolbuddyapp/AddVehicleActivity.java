@@ -92,11 +92,6 @@ public class AddVehicleActivity extends AppCompatActivity
                         DocumentSnapshot ds = task.getResult();
                         Vehicles vehicle = ds.toObject(Vehicles.class);
                         String vehicleDescription = vehicle.getCarDescription();
-
-//                        for (DocumentSnapshot testingVehicle: Vehicles.requireNonNull(task.getResult()))
-//                        {
-//                            vehiclesList.add(vehicle.toString());
-//                        }
                     }
                 }
             });

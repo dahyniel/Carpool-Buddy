@@ -27,7 +27,11 @@ import java.util.Objects;
 
 public class VehiclesInfoActivity extends AppCompatActivity
 {
-    private ArrayList<RecyclerViewUser> usersList;
+    private ArrayList<RecyclerViewUser> carTypeList;
+    private ArrayList<RecyclerViewUser> carOwnerList;
+    private ArrayList<RecyclerViewUser> carPriceList;
+    private ArrayList<RecyclerViewUser> carCapacityList;
+    private ArrayList<RecyclerViewUser> carDescriptionList;
     private RecyclerView recyclerView;
     private RecyclerViewAdapter.RecyclerViewClickListener listener;
 
@@ -41,7 +45,11 @@ public class VehiclesInfoActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicles_info);
-        usersList = new ArrayList<>();
+        carTypeList = new ArrayList<>();
+        carOwnerList = new ArrayList<>();
+        carPriceList = new ArrayList<>();
+        carCapacityList = new ArrayList<>();
+        carDescriptionList = new ArrayList<>();
         recyclerView = findViewById(R.id.myVehiclesRecyclerView);
         firestore = FirebaseFirestore.getInstance();
         setUserInfo();
@@ -50,7 +58,7 @@ public class VehiclesInfoActivity extends AppCompatActivity
     private void setAdapter()
     {
         setOnClickListener();
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(usersList, listener);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(carDescriptionList, listener);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -65,7 +73,11 @@ public class VehiclesInfoActivity extends AppCompatActivity
             public void onClick(View v, int position)
             {
                 Intent intent = new Intent(getApplicationContext(), VehicleProfileActivity.class);
-                intent.putExtra("Description", usersList.get(position).getUsername());
+                intent.putExtra("Type", carTypeList.get(position).getUsername());
+                intent.putExtra("Owner", carOwnerList.get(position).getUsername());
+                intent.putExtra("Price", carPriceList.get(position).getUsername());
+                intent.putExtra("Capacity", carCapacityList.get(position).getUsername());
+                intent.putExtra("Description", carDescriptionList.get(position).getUsername());
                 startActivity(intent);
             }
         };
@@ -82,8 +94,22 @@ public class VehiclesInfoActivity extends AppCompatActivity
                 {
                     for (QueryDocumentSnapshot document: task.getResult())
                     {
+                        String type = document.toObject(Vehicles.class).getCarType();
+                        carTypeList.add(new RecyclerViewUser(type));
+
+                        String owner = document.toObject(Vehicles.class).getCarOwner();
+                        carOwnerList.add(new RecyclerViewUser(owner));
+
+                        double price = document.toObject(Vehicles.class).getCarPrice();
+                        String priceString = Double.toString(price);
+                        carPriceList.add(new RecyclerViewUser(priceString));
+
+                        int capacity = document.toObject(Vehicles.class).getCarCapacity();
+                        String capacityString = Integer.toString(capacity);
+                        carCapacityList.add(new RecyclerViewUser(capacityString));
+
                         String description = document.toObject(Vehicles.class).getCarDescription();
-                        usersList.add(new RecyclerViewUser(description));
+                        carDescriptionList.add(new RecyclerViewUser(description));
                     }
                 }
                 setAdapter();
