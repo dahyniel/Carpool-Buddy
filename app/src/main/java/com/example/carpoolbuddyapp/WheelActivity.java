@@ -16,7 +16,13 @@ import java.util.Random;
 
 public class WheelActivity extends AppCompatActivity
 {
+    private static final String [] prizes = {"Free cookies from Atrium", "1 day dress casual",
+            "20 minutes in nap room", "Free lunch from Chartwells",
+            "Free high five from Mr Lynch", "$10 from Annual Fund", "5 extra minutes of break",
+            "Free drink from Rooftop Cafe", "1 day life pass"};
+
     private static final String [] sectors = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
     private static final int [] sectorDegrees = new int[sectors.length];
     private static final Random random = new Random();
     private int degree = 0;
@@ -78,7 +84,7 @@ public class WheelActivity extends AppCompatActivity
             @Override
             public void onAnimationEnd(Animation animation)
             {
-                Toast.makeText(WheelActivity.this, "Yay!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WheelActivity.this, "You won " + prizes[sectors.length - (degree + 1)] + "!", Toast.LENGTH_SHORT).show();
                 spinning = false;
             }
 
