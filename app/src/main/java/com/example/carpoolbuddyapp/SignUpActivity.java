@@ -38,6 +38,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     EditText emailField;
     EditText passwordField;
 
+    String roleInput;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -62,7 +64,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
     {
-//        String text = adapterView.getItemAtPosition(i).toString();
+        String text = adapterView.getItemAtPosition(i).toString();
+        roleInput = text;
 //        Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
@@ -87,7 +90,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         EditText passwordText = findViewById(R.id.signUpPasswordInput);
         String passwordString = passwordText.getText().toString();
 
-        User newUser = new User(nameString, passwordString, emailString);
+        User newUser = new User(nameString, passwordString, emailString, roleInput);
         firestore.collection("Users").document(newUser.getUserName()).set(newUser);
 
         String cisEmail = emailString.substring(emailString.length() - 10);

@@ -138,16 +138,16 @@ public class VehicleProfileActivity extends AppCompatActivity
         String checkOwner = mAuth.getCurrentUser().getEmail();
         checkOwner = checkOwner.substring(0, checkOwner.length() - 10);
 
-        String capacity = carCapacity.toString();
+        String capacity = carCapacity.getText().toString();
         int capacityInt = Integer.valueOf(capacity);
 
-        String price = carPrice.toString();
+        String price = carPrice.getText().toString();
         double priceDouble = Double.valueOf(price);
 
-        if (checkOwner.equals(carOwner.getText()))
+        if (checkOwner.equals(carOwner.getText().toString()))
         {
-            Vehicles car = new Vehicles(carId.toString(), carType.toString(), carOwner.toString(), capacityInt, priceDouble,
-                    carDescription.toString(), false);
+            Vehicles car = new Vehicles(carId.getText().toString(), carType.getText().toString(), carOwner.getText().toString(), capacityInt, priceDouble,
+                    carDescription.getText().toString(), false);
             firestore.collection("Vehicles").document(car.getCarId()).set(car);
 
             Context context = getApplicationContext();
