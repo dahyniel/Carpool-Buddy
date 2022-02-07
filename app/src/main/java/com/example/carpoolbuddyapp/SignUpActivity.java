@@ -3,6 +3,7 @@ package com.example.carpoolbuddyapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,25 +80,38 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         User newUser = new User(nameString, passwordString, emailString);
         firestore.collection("Users").document(newUser.getUserName()).set(newUser);
 
-        mAuth.createUserWithEmailAndPassword(emailString, passwordString)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-                {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
+        String cisEmail = emailString.substring(emailString.length() - 10);
+
+        if (cisEmail.equals("cis.edu.hk"))
+        {
+            mAuth.createUserWithEmailAndPassword(emailString, passwordString)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
                     {
-                        if (task.isSuccessful())
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task)
                         {
-                            Log.d("Sign Up", "Signed Up!");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            if (task.isSuccessful())
+                            {
+                                Log.d("Sign Up", "Signed Up!");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            }
+                            else
+                            {
+                                Log.w("SIGN UP", "createUserWithEmail:failure", task.getException());
+                                updateUI(null);
+                            }
                         }
-                        else
-                        {
-                            Log.w("SIGN UP", "createUserWithEmail:failure", task.getException());
-                            updateUI(null);
-                        }
-                    }
-                });
+                    });
+        }
+        else
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "Sorry, this is only for the CIS community!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     public void updateUI(FirebaseUser currentUser)

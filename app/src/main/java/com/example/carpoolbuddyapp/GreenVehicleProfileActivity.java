@@ -3,6 +3,7 @@ package com.example.carpoolbuddyapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -85,9 +86,16 @@ public class GreenVehicleProfileActivity extends AppCompatActivity
     public void bookRide(View v)
     {
         Context context = getApplicationContext();
-        CharSequence text = "Ride booked";
+        CharSequence text = "Ride booked!";
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+        openWheelActivity();
+    }
+
+    public void openWheelActivity()
+    {
+        Intent intent = new Intent(this, WheelActivity.class);
+        startActivity(intent);
     }
 }
