@@ -2,6 +2,12 @@ package com.example.carpoolbuddyapp;
 
 import java.io.Serializable;
 
+/**
+ * This class is for a non-green-vehicle that a user can add
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class Vehicles implements Serializable
 {
     String carId;

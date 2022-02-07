@@ -25,6 +25,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * This class is for users to view a recycler view of vehicles available
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class VehiclesInfoActivity extends AppCompatActivity
 {
     private ArrayList<RecyclerViewUser> carIdList;
@@ -83,6 +89,9 @@ public class VehiclesInfoActivity extends AppCompatActivity
         };
     }
 
+    /**
+     * This method takes in data from the database and passes to the recycler view to be displayed
+     */
     private void setUserInfo()
     {
         firestore.collection("Vehicles")

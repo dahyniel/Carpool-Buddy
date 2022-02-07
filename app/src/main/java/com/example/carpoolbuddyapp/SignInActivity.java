@@ -23,6 +23,12 @@ import com.google.firebase.firestore.auth.User;
 
 import java.util.UUID;
 
+/**
+ * This class is for users to sign in with existing accounts
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class SignInActivity extends AppCompatActivity
 {
     private FirebaseAuth mAuth;
@@ -42,6 +48,10 @@ public class SignInActivity extends AppCompatActivity
         passwordField = findViewById(R.id.signInPasswordInput);
     }
 
+    /**
+     * This method is to get the users inputs and checks to see if they are a returning user
+     * @param v sends the user to the home page if the sign in process is successful
+     */
     public void signIn(View v)
     {
         String emailString = emailField.getText().toString();

@@ -10,6 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * This class is for the recycler view to update and show new available vehicles
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>
 {
     private ArrayList<RecyclerViewUser> usersList;

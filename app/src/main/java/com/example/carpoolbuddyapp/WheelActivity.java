@@ -14,6 +14,12 @@ import android.widget.Toast;
 
 import java.util.Random;
 
+/**
+ * This class creates a spinning wheel to incentive people to book green vehicles
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class WheelActivity extends AppCompatActivity
 {
     private static final String [] prizes = {"Free cookies from Atrium", "1 day dress casual",
@@ -54,6 +60,9 @@ public class WheelActivity extends AppCompatActivity
         });
     }
 
+    /**
+     * This method gets the degree of the wheel to determine which prize the user recieves
+     */
     private void getDegreeForSectors()
     {
         int sectorDegree = 360/ sectors.length;
@@ -64,6 +73,9 @@ public class WheelActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * This method spins the wheel with a set animation and spinning time
+     */
     public void spinWheel()
     {
         degree = random.nextInt(sectors.length - 1);

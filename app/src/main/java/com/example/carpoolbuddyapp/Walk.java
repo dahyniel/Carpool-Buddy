@@ -2,6 +2,12 @@ package com.example.carpoolbuddyapp;
 
 import java.io.Serializable;
 
+/**
+ * This class is for vehicle type Walk that a user can add
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class Walk implements Serializable
 {
     String walkId;

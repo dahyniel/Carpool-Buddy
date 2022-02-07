@@ -1,5 +1,11 @@
 package com.example.carpoolbuddyapp;
 
+/**
+ * This class is for the recycler view to display each vehicle available
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class RecyclerViewUser
 {
     String username;

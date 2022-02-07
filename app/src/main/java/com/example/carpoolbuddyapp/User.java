@@ -2,6 +2,12 @@ package com.example.carpoolbuddyapp;
 
 import java.io.Serializable;
 
+/**
+ * This class is used to create a user
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class User implements Serializable
 {
     String userName;

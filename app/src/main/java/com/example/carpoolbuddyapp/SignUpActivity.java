@@ -21,6 +21,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+/**
+ * This class is used to sign up users after filling in given fields
+ *
+ * @author danielyang
+ * @version 1.0
+ */
 public class SignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     private FirebaseAuth mAuth;
@@ -66,6 +72,10 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+    /**
+     * This method takes in the inputs from the user and stores an account to Firebase
+     * @param v sends the user to the home page if the sign up is successful
+     */
     public void signUp(View v)
     {
         EditText nameText = findViewById(R.id.signUpNameInput);
